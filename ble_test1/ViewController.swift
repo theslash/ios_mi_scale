@@ -15,6 +15,7 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     let particleLEDServiceUUID = CBUUID.init(string: "181B")
     
     var weightMeasure: Double = 0
+    var weightMeasureGrams: Double = 0
     
     @IBOutlet weak var weightLabel: UILabel!
     
@@ -23,6 +24,13 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     }
     
     @IBAction func buttonSendHealthKit(_ sender: Any) {
+        saveBodyMassIndexToHealthKit()
+    }
+    
+    
+    func saveBodyMassIndexToHealthKit() {
+        storeData.saveBodyMassIndexSample(bodyMass: weightMeasureGrams,
+                                               date: Date())
     }
     
     
@@ -169,6 +177,7 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         let intValue = Int(stringValue)!
         print("IntValue: \(intValue)")
         weightMeasure = (((Double(intValue) * 256) + 240) * 0.005)
+        weightMeasureGrams = weightMeasure * 1000
         print(weightMeasure)
         self.weightLabel.text = String(describing: self.weightMeasure) + " Kg"
         
