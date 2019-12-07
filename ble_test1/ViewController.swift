@@ -30,7 +30,8 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     
     func saveBodyMassIndexToHealthKit() {
         storeData.saveBodyMassIndexSample(bodyMass: weightMeasureGrams,
-                                               date: Date())
+                                          date: Date())
+        
     }
     
     
@@ -45,24 +46,24 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     }
     
     private let authorizeHealthKitSection = 2
-
+    
     private func authorizeHealthKit() {
         HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
-              
-          guard authorized else {
+            
+            guard authorized else {
                 
-            let baseMessage = "HealthKit Authorization Failed"
+                let baseMessage = "HealthKit Authorization Failed"
                 
-            if let error = error {
-              print("\(baseMessage). Reason: \(error.localizedDescription)")
-            } else {
-              print(baseMessage)
+                if let error = error {
+                    print("\(baseMessage). Reason: \(error.localizedDescription)")
+                } else {
+                    print(baseMessage)
+                }
+                
+                return
             }
-                
-            return
-          }
-              
-          print("HealthKit Successfully Authorized.")
+            
+            print("HealthKit Successfully Authorized.")
         }
     }
     
@@ -166,19 +167,19 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
             else { print("missing updated value"); return }
         
         let weightData = scaleData as NSData
-        print(weightData)
+        //        print(weightData)
         
         let lastHex = weightData.last!
-//        print(lastHex)
+        //        print(lastHex)
         
         //        let weight = (((lastHex as Float * 256) + 240)*0.005)
         
         let stringValue = lastHex.description
         let intValue = Int(stringValue)!
-        print("IntValue: \(intValue)")
+        //        print("IntValue: \(intValue)")
         weightMeasure = (((Double(intValue) * 256) + 240) * 0.005)
         weightMeasureGrams = weightMeasure * 1000
-        print(weightMeasure)
+        //        print(weightMeasure)
         self.weightLabel.text = String(describing: self.weightMeasure) + " Kg"
         
     }
