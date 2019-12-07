@@ -18,6 +18,14 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     
     @IBOutlet weak var weightLabel: UILabel!
     
+    @IBAction func buttonAuthorize(_ sender: Any) {
+        authorizeHealthKit()
+    }
+    
+    @IBAction func buttonSendHealthKit(_ sender: Any) {
+    }
+    
+    
     // Properties
     private var centralManager: CBCentralManager!
     private var peripheral: CBPeripheral!
@@ -26,15 +34,29 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         super.viewDidLoad()
         
         centralManager = CBCentralManager(delegate: self, queue: nil)
-        
-//            self.weightLabel.text = String(describing: self.weightMeasure) + " Kg"
-        
-  
-        
-        
-        
     }
     
+    private let authorizeHealthKitSection = 2
+
+    private func authorizeHealthKit() {
+        HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
+              
+          guard authorized else {
+                
+            let baseMessage = "HealthKit Authorization Failed"
+                
+            if let error = error {
+              print("\(baseMessage). Reason: \(error.localizedDescription)")
+            } else {
+              print(baseMessage)
+            }
+                
+            return
+          }
+              
+          print("HealthKit Successfully Authorized.")
+        }
+    }
     
     // If we're powered on, start scanning
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
