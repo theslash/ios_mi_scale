@@ -17,6 +17,16 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     var weightMeasure: Double = 0
     var weightMeasureGrams: Double = 0
     
+    func openUrl(urlString: String) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+
     
     
     @IBOutlet weak var weightLabel: UILabel!
@@ -26,15 +36,19 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     }
     
     @IBAction func buttonSendHealthKit(_ sender: Any) {
-//        if weightMeasureGrams == 0 {
-//            print("LEEEEEER")
-//        } else {
+        if weightMeasureGrams == 0 {
+            print("LEEEEEER")
+        } else {
             saveBodyMassIndexToHealthKit()
-//        }
+        }
         
         
     }
     
+    @IBAction func buttonOpenHealth(_ sender: Any) {
+        openUrl(urlString: "x-apple-health://")
+
+    }
     
     
     func saveBodyMassIndexToHealthKit() {
@@ -176,19 +190,19 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
             else { print("missing updated value"); return }
         
         let weightData = scaleData as NSData
-        //        print(weightData)
+                print(weightData)
         
         let lastHex = weightData.last!
-        //        print(lastHex)
+                print(lastHex)
         
         //        let weight = (((lastHex as Float * 256) + 240)*0.005)
         
         let stringValue = lastHex.description
         let intValue = Int(stringValue)!
-        //        print("IntValue: \(intValue)")
+                print("IntValue: \(intValue)")
         weightMeasure = (((Double(intValue) * 256) + 240) * 0.005)
         weightMeasureGrams = weightMeasure * 1000
-        //        print(weightMeasure)
+//                print(weightMeasure)
         self.weightLabel.text = String(describing: self.weightMeasure) + " Kg"
         
     }
