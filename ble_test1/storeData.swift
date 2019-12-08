@@ -7,17 +7,18 @@
 //
 
 import HealthKit
+import UIKit
 
 class storeData {
 
     class func saveBodyMassIndexSample(bodyMass: Double, date: Date) {
       
-      //1.  Make sure the body mass type exists
+      //1.  Check if Healthkit Type exists
       guard let bodyMassType = HKQuantityType.quantityType(forIdentifier: .bodyMass) else {
         fatalError("Body Mass  Type is no longer available in HealthKit")
       }
         
-      //2.  Use the Count HKUnit to create a body mass quantity
+      //2. Create HK Unit
         let bodyMassQuantity = HKQuantity(unit: HKUnit.gram(),
                                         doubleValue: bodyMass)
         
@@ -33,8 +34,15 @@ class storeData {
           print("Error Saving Weight Sample: \(error.localizedDescription)")
         } else {
           print("Successfully saved Weight Sample")
+
+
+            
+            
         }
       }
     }
+    
+    
 
 }
+

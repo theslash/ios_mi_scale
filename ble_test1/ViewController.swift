@@ -17,6 +17,8 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     var weightMeasure: Double = 0
     var weightMeasureGrams: Double = 0
     
+    
+    
     @IBOutlet weak var weightLabel: UILabel!
     
     @IBAction func buttonAuthorize(_ sender: Any) {
@@ -24,8 +26,15 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     }
     
     @IBAction func buttonSendHealthKit(_ sender: Any) {
-        saveBodyMassIndexToHealthKit()
+//        if weightMeasureGrams == 0 {
+//            print("LEEEEEER")
+//        } else {
+            saveBodyMassIndexToHealthKit()
+//        }
+        
+        
     }
+    
     
     
     func saveBodyMassIndexToHealthKit() {
@@ -184,5 +193,8 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         
     }
     
+    
+
+
 }
 
