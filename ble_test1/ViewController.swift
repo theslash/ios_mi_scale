@@ -188,19 +188,26 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard let scaleData = characteristic.value
             else { print("missing updated value"); return }
-        
+                
+
         let weightData = scaleData as NSData
-                print(weightData)
+//                print(weightData)
         
         let lastHex = weightData.last!
-                print(lastHex)
+//                print("Weight: ",lastHex)
+        let multiplierHex = weightData[11]
+//                print("Multiplier: ",multiplierHex)
         
-        //        let weight = (((lastHex as Float * 256) + 240)*0.005)
         
-        let stringValue = lastHex.description
-        let intValue = Int(stringValue)!
-                print("IntValue: \(intValue)")
-        weightMeasure = (((Double(intValue) * 256) + 240) * 0.005)
+        let weightStringValue = lastHex.description
+        let weightValue = Int(weightStringValue)!
+                print("IntValue: \(weightValue)")
+
+        let multiplierStringValue = multiplierHex.description
+        let mulitplierValue = Int(multiplierStringValue)!
+                print("MulitplierValue: \(mulitplierValue)")
+        
+        weightMeasure = (((Double(weightValue) * 256) + Double(mulitplierValue)) * 0.005)
         weightMeasureGrams = weightMeasure * 1000
 //                print(weightMeasure)
         self.weightLabel.text = String(describing: self.weightMeasure) + " Kg"
