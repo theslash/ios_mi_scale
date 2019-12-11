@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F2DCC0C239AD5AD00514239 /* Ble Scale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ble Scale.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2DCC0C239AD5AD00514239 /* Mi Scale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mi Scale.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2DCC0F239AD5AD00514239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F2DCC11239AD5AD00514239 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5F2DCC13239AD5AD00514239 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		5F2DCC0D239AD5AD00514239 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F2DCC0C239AD5AD00514239 /* Ble Scale.app */,
+				5F2DCC0C239AD5AD00514239 /* Mi Scale.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,7 +104,7 @@
 			);
 			name = "BLE Scale";
 			productName = ble_test1;
-			productReference = 5F2DCC0C239AD5AD00514239 /* Ble Scale.app */;
+			productReference = 5F2DCC0C239AD5AD00514239 /* Mi Scale.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -315,7 +315,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rudikraemer.ble-test1";
-				PRODUCT_NAME = "Ble Scale";
+				PRODUCT_NAME = "Mi Scale";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -334,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rudikraemer.ble-test1";
-				PRODUCT_NAME = "Ble Scale";
+				PRODUCT_NAME = "Mi Scale";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

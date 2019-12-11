@@ -12,11 +12,14 @@ import CoreBluetooth
 
 class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDelegate {
     
+    //UUID used by Xiaomi Scale
     let particleLEDServiceUUID = CBUUID.init(string: "181B")
     
+    //Variables for Weight Data
     var weightMeasure: Double = 0
     var weightMeasureGrams: Double = 0
     
+    //URL function for opening Apple Health
     func openUrl(urlString: String) {
         guard let url = URL(string: urlString) else {
             return
@@ -26,35 +29,34 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
-
     
     
+    //Weight Label
     @IBOutlet weak var weightLabel: UILabel!
     
+    //Button to authorize Apple Health
     @IBAction func buttonAuthorize(_ sender: Any) {
         authorizeHealthKit()
     }
     
+    //Button to send data to Healthkit
     @IBAction func buttonSendHealthKit(_ sender: Any) {
         if weightMeasureGrams == 0 {
-            print("LEEEEEER")
+            print("empty")
         } else {
             saveBodyMassIndexToHealthKit()
         }
-        
-        
     }
     
+    //Button to open Apple Health
     @IBAction func buttonOpenHealth(_ sender: Any) {
         openUrl(urlString: "x-apple-health://")
-
     }
     
-    
+    //Function to save Weight to Healthkit
     func saveBodyMassIndexToHealthKit() {
         storeData.saveBodyMassIndexSample(bodyMass: weightMeasureGrams,
                                           date: Date())
-        
     }
     
     
@@ -65,11 +67,13 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Manager Delegate
         centralManager = CBCentralManager(delegate: self, queue: nil)
     }
     
     private let authorizeHealthKitSection = 2
     
+    //Authorize Healthkit
     private func authorizeHealthKit() {
         HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
             
@@ -99,8 +103,6 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
             print("Central scanning for", particleLEDServiceUUID);
             centralManager.scanForPeripherals(withServices: [particleLEDServiceUUID],
                                               options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
-            //                centralManager.scanForPeripherals(withServices: nil, options: nil)
-            
         }
     }
     
@@ -114,7 +116,6 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
             print("AD Data: \(ad)")
         }
         
-        
         //We've found it so stop scan
         self.centralManager.stopScan()
         
@@ -124,7 +125,6 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         
         // Connect!
         self.centralManager.connect(self.peripheral, options: nil)
-        
     }
     
     // The handler if we do connect succesfully
@@ -147,8 +147,6 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
                     return
                 }
                 print("Service Data: \(service)")
-                
-                
             }
         }
     }
@@ -159,7 +157,6 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         if let characteristics = service.characteristics {
             for characteristic in characteristics {
                 
-                
                 switch characteristic.uuid.uuidString{
                     
                 case "2A9C":
@@ -167,20 +164,9 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
                     peripheral.setNotifyValue(true, for: characteristic)
                     print("Characteristic: \(characteristic)")
                     peripheral.readValue(for: characteristic)
-                    
-                    
                 default:
                     print("")
                 }
-                
-                
-                
-                //                    peripheral.readValue(for: characteristic)
-                //
-                //                    print("Characteristic: \(characteristic)")
-                
-                //print("Char.Value: \(String(describing: characteristic.value))")
-                
             }
         }
     }
@@ -188,34 +174,28 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard let scaleData = characteristic.value
             else { print("missing updated value"); return }
-                
-
+        
         let weightData = scaleData as NSData
-//                print(weightData)
+        //                print(weightData)
         
         let lastHex = weightData.last!
-//                print("Weight: ",lastHex)
+        //                print("Weight: ",lastHex)
         let multiplierHex = weightData[11]
-//                print("Multiplier: ",multiplierHex)
+        //                print("Multiplier: ",multiplierHex)
         
         
         let weightStringValue = lastHex.description
         let weightValue = Int(weightStringValue)!
-                print("IntValue: \(weightValue)")
-
+        print("IntValue: \(weightValue)")
+        
         let multiplierStringValue = multiplierHex.description
         let mulitplierValue = Int(multiplierStringValue)!
-                print("MulitplierValue: \(mulitplierValue)")
+        print("MulitplierValue: \(mulitplierValue)")
         
         weightMeasure = (((Double(weightValue) * 256) + Double(mulitplierValue)) * 0.005)
         weightMeasureGrams = weightMeasure * 1000
-//                print(weightMeasure)
+        //                print(weightMeasure)
         self.weightLabel.text = String(describing: self.weightMeasure) + " Kg"
-        
     }
-    
-    
-
-
 }
 
