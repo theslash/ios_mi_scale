@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ble_test1.xcodeproj">
+      location = "self:/Users/rudikramer/Documents/SWIFT/ble_test1/ble_test1/mi_scale.xcodeproj">
    </FileRef>
 </Workspace>

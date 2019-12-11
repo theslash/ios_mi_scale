@@ -49,7 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				5FB4BF12239C2D08001C9597 /* Ble Scale.entitlements */,
-				5F2DCC0E239AD5AD00514239 /* ble_test1 */,
+				5F2DCC0E239AD5AD00514239 /* mi_scale */,
 				5F2DCC0D239AD5AD00514239 /* Products */,
 				5FB4BF13239C2D08001C9597 /* Frameworks */,
 			);
@@ -63,7 +63,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5F2DCC0E239AD5AD00514239 /* ble_test1 */ = {
+		5F2DCC0E239AD5AD00514239 /* mi_scale */ = {
 			isa = PBXGroup;
 			children = (
 				5F2DCC0F239AD5AD00514239 /* AppDelegate.swift */,
@@ -76,7 +76,7 @@
 				5FB4BF18239C2EC1001C9597 /* HealthKitSetupAssistant.swift */,
 				5FB4BF1A239C3347001C9597 /* storeData.swift */,
 			);
-			path = ble_test1;
+			path = mi_scale;
 			sourceTree = "<group>";
 		};
 		5FB4BF13239C2D08001C9597 /* Frameworks */ = {
@@ -122,7 +122,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5F2DCC07239AD5AD00514239 /* Build configuration list for PBXProject "ble_test1" */;
+			buildConfigurationList = 5F2DCC07239AD5AD00514239 /* Build configuration list for PBXProject "mi_scale" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -238,6 +238,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -292,6 +293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -309,12 +311,12 @@
 				CODE_SIGN_ENTITLEMENTS = "Ble Scale.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53B6J9ETU4;
-				INFOPLIST_FILE = ble_test1/Info.plist;
+				INFOPLIST_FILE = mi_scale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rudikraemer.ble-test1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudikraemer.mi_scale;
 				PRODUCT_NAME = "Mi Scale";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -328,12 +330,12 @@
 				CODE_SIGN_ENTITLEMENTS = "Ble Scale.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53B6J9ETU4;
-				INFOPLIST_FILE = ble_test1/Info.plist;
+				INFOPLIST_FILE = mi_scale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rudikraemer.ble-test1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudikraemer.mi_scale;
 				PRODUCT_NAME = "Mi Scale";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -343,7 +345,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F2DCC07239AD5AD00514239 /* Build configuration list for PBXProject "ble_test1" */ = {
+		5F2DCC07239AD5AD00514239 /* Build configuration list for PBXProject "mi_scale" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F2DCC1E239AD5AE00514239 /* Debug */,
