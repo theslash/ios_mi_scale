@@ -12,13 +12,13 @@ Before you can store the weight in Health you have to authorize, with the lower 
 - Check if characteristic "2A9C" is present
 - Subscribe to notifications for this characteristic and read the data
 
-**Weight Data**
+**Weight Data**   
 2A9C data looks like this:
 
 [2, 164, 233, 7, 1, 1, 2, 44, 56, 255, 255, 160, 62]
 
 Last two values and first are important.
-If bit 0 of the first byte is 0 the weigt is stored in metric.
+If bit 0 of the first byte is 0 the weigt is stored in metric.  
 You need the following calculation to get the weight:
 ((Byte 13 * 256) + Byte12) * 0.005
 
