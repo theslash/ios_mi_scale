@@ -309,15 +309,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Ble Scale.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 53B6J9ETU4;
+				DEVELOPMENT_TEAM = 7Q743E64AV;
 				INFOPLIST_FILE = mi_scale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rudikraemer.mi_scale;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudikraemer.miscale;
 				PRODUCT_NAME = "Mi Scale";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -328,15 +330,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Ble Scale.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 53B6J9ETU4;
+				DEVELOPMENT_TEAM = 7Q743E64AV;
 				INFOPLIST_FILE = mi_scale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rudikraemer.mi_scale;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudikraemer.miscale;
 				PRODUCT_NAME = "Mi Scale";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSHealthShareUsageDescription</key>
-	<string>App uses Health share to store Weight</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>App uses Health share to store Weight</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>App uses Bluetooth to read Weight</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>App uses Bluetooth to read Weight</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -28,6 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>App uses Bluetooth to read Weight</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>App uses Bluetooth to read Weight</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>App uses Health share to store Weight</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>App uses Health share to store Weight</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
